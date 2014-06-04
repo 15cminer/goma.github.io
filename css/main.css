@@ -165,13 +165,6 @@ left: 0;
 width: 15%;
 height: 50%;
 color: #ffffff;
-text-align: center;
-padding-left: 15px;
-/* Adds shadow to the bottom of the bar */
--webkit-box-shadow: 0px 0px 8px 0px #000000;
--moz-box-shadow: 0px 0px 8px 0px #000000;
-box-shadow: 0px 0px 8px 0px #000000;
-/* Adds the transparent background */
 background-color: rgba(1, 1, 1, 0.8);
 color: rgba(1, 1, 1, 0.8);
 }
