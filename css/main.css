@@ -19,7 +19,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, h7{
-  background-color: blue;
+  
+  background-color:#50;
   font-size: 100%; }
 
 h1 { margin-bottom: 1em; }
