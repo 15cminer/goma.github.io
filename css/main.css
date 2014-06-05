@@ -159,7 +159,7 @@ a:visited { color: #a0a; }
   background-color: #333;
 }
 
-  #navigation {
+#navigation {
 position: fixed;
 left: 0;
 width: 15%;
@@ -173,7 +173,7 @@ color: rgba(1, 1, 1, 0.8);
 font-size: 14px;
 padding-left: 15px;
 padding-right: 15px;
-color: white;
+color: blue;
 text-decoration: none;
 }
 
