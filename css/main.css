@@ -6,6 +6,7 @@ background: rgba(1, 1, 1, .2);
 font-size: 14px;
 padding-left: 15px;
 padding-right: 15px;
+
 color: blue;
 text-decoration: none;
 
@@ -17,4 +18,16 @@ color: grey;
 
 #p1 {
 text-align: justify;
+}
+
+#video {
+ padding-top: 15px;
+ }
+ 
+#gomaLogo {
+padding-top: 30px;
+}
+
+#mainButtons {
+display: inline-block;
 }
