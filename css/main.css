@@ -1,13 +1,15 @@
 #sidebar {
 width: 80%;
-background: rgba(1, 1, 1, .2);
+background: rgba(1, 1, 1, .1);
+box-shadow: 10px 10px 5px #888888;
+
 }
 #sidebar a {
 font-size: 14px;
 padding-left: 15px;
 padding-right: 15px;
 
-color: blue;
+color: #3399FF;
 text-decoration: none;
 
 }
@@ -30,4 +32,12 @@ padding-top: 30px;
 
 #mainButtons {
 display: inline-block;
+}
+
+#topBar a {
+color: #3399FF;
+}
+
+#topBar {
+
 }
