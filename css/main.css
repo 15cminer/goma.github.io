@@ -38,6 +38,7 @@ display: inline-block;
 color: #3399FF;
 }
 
-#topBar {
-
+#build{
+ margin-left: 60px;
+ margin-right: 60px;
 }
