@@ -42,3 +42,18 @@ color: #3399FF;
  margin-left: 60px;
  margin-right: 60px;
 }
+
+#buildOverview {
+background: rgba(0, 0, 800, .1);
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-top: 15px
+}
+
+
+#libraries {
+background: rgba(1, 1, 1, .1);
+color: black;
+font-size: 14px
+}

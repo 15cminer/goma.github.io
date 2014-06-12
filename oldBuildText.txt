@@ -1,74 +1,3 @@
-<!DOCTYPE html>
-<!-- saved from url=(0022)http://goma.github.io/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="files/icon.jpg">
-    <title>Goma 6.0 Finite Element Program</title>
-	
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Google Analytics Code -->
-    <script async="" src="./Goma 6.0 Finite Element Program_files/analytics.js"></script><script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-4121810-13', 'goma.github.io');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
-
-</script>
-
-  </head>
-
-  <body>
-
-    <!-- Static navbar -->
-    <div class="navbar navbar-default navbar-static-top" role="navigation" id="navigation">
-	<table><tr><td>
-		 <p>
-   <div class="image">
-      <img src="files/sandiaLogo.jpg" width="100"/>
-      <img src="files/gomaLogo.jpg" width="100"/>
-    </div>
-	</p>
-	</td>
-	<td>
-      <div class="container" id="topBar">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-             <a class="navbar-brand" href="main.html">Goma Home</a>
-        </div>
-        <div class="navbar-collapse collapse" id="topBar">
-          <ul class="nav navbar-nav">
-            <li><a href="about.html">About</a></li>
-            <li><a href="build.html">Build Goma 6.0</a></li>
-            <li><a href="https://github.com/goma/goma">Source Code</a></li>
-			<li><a href="http://chtm1.unm.edu:8080">Issue Database</a></li>
-			<li><a href="http://chtm1.unm.edu:8090">Discussion Forums</a></li>
-			
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-	  </td>
-		</tr>
-		</table>
-    </div>
 
 	<div id="build">
 	<!--<div class="container">
@@ -80,113 +9,114 @@
 
   <p>1/25/2013 – P. R. Schunk, revised</p>
   
-  <p>This document takes the new user step-by-step to building this large distribution, and
-    ultimately building GOMA.</p>
-  <p>This is a guide to build Goma 6.0 if you have no root access, and you want 
-  to build a self-contained distribution from which GOMA and all its dependencies
-  can be built. This build guide was constructed on Red Hat   RHEL5 and Red Hat 
-  RHEL6 OS. Although  many of the tips might apply to other platforms, there are no
- promises.</p>
-  
-   <div id="buildOverview">
-  <h3>Overview</h3>
-	<ol>
-<li><p>Description and download location of each necessary directories and third-party libraries</p></li>
-<li><p>Create your own directory filled with the essential directories</p></li>
-<li><p>Get the Goma 6.0 source code from the Goma Github page</p></li>
-<li><p>Edit settings inside Goma</p></li>
-</ol>
-</div>
- <h3>Download Directories</h3>
-  <p>First you need to acquire the GOMA software distribution.</p>
- <p>If you don’t have root access, and your machine has on it cmake and openmpi, then you will not need
-    those two libraries. Cmake is rarer than Openmpi, but in any case you want to determine whether you
-    have these. Cmake is used to build trilinos. Openmpi is required for all packages if you are to build 
-	for parallel capability. In this build guide, we started without Cmake and Openmpi.</p>
+
+  <p>These notes are from recent build experiences on Red Hat RHEL5 and Red Hat RHEL6 OS.     Although many of the tips might apply to other platforms, there are no promises.   </p>
+
+  <p>I have created this document/note to help users go through the GOMA build process without too many issues. I have added notes from ACCESS.distribution and GOMA_howto files in here. </p>
+
+  <p>Basically, you first need to acquire the GOMA software distribution by one of several means.    The required libraries, or TPLs, are numerous.    If you have no root access, and you want to build a self-contained distribution from which GOMA and all its dependencies can be built, your directories and files will look like this in your “GOMA_ROOT” area:</p>
+  <div class="highlight">
+    <pre><code class="text language-text" data-lang="text">
+	about_libraries
+	make_output
+	ARPACK
+	openmpi-1.6.3
+	BLAS
+	cmake-2.8.10.2
+	Readme.libs
+	Seacas-2012-09-10
+	front
+	sparse
+	Goma_howto.txt
+	SuiteSparse
+	Key-linux-mpi-cmake-script
+	SuperLU_DIST_2.3
+	Key_script_trilinos_prschun trilinos-10.10.2-Source
+	lapack-3.2.1
+	UMFPACK-5.4
+	Makefile
+	y12m
+	make.inc
+	ParMetis-3.1.1
+  </code></pre></div>
+  <p>If you don’t have root access, and your machine has on it cmake and openmpi, then you will not need
+    these libraries. Cmake is rarer than openmpi, but in any case you want to determine whether you
+    have these. Cmake is used to build trilinos, and you can get it from the web (free downloads). Openmpi
+    is required for all packages if you are to build for parallel capability. We suggest you just build this way
+    and not worry about a serial version. In the case shown here, we didn’t have root access and and the
+    machine did not have openmpi or cmake, so we acquired them, built them, and installed them in this
+    GOMA_ROOT area.</p>
 
   <p>If you have root access, and you are building on a server of some sort, you may want to acquire Cmake
     and Openmpi and build and install in the usual default locations, like /usr/lib or /usr/local/lib etc., or
     even in /usr/bin for the executables. You may also have a shared area to build these tools in. You can
     also just simply work with your administrator to acquire these packages.</p>
 
-<p>Here are the directories (distributions) and TPLs (third-party libraries) that are required. A brief
-    description of each and how they can be acquired is given here.</p>
+  <p>The files “about_libraries”, “Goma_howto.txt”, “Readme.libs” are information files that are helpful to
+    read. These are constantly being updated. These files can be obtained from the authors of this memo.
+    Just email them. The files “Makefile, make.inc, make_output” are global makefiles to guide the
+    building of their entire distribution in one command. As of this writing, it kindof works. We did have
+    some trouble with trilinos. When we ship you a distribution, these makefiles and the goma source will
+    be shipped along with some of the harder-to-get TPLs. This document instructs you how to get the rest.</p>
 
-	
-  <p><code id="libraries">AMD-2.2.4:</code> Arnoldi Solver package. Google it. Again, you can also start with what we supply.</p>
+  <p>The supporting libraries for GOMA and in turn their dependencies can be seen in the Makefile here:</p>
+  <div class="highlight"><pre><code class="text language-text" data-lang="text">
+	# Target Dependencies:
+	# Set the default target for the makefile:
+	DEFAULT_TARGET = all
+	# arpack dependent libraries
+	ARPACK_DEPENDENCIES = blas lapack
+	# arpack targets for make
+	ARPACK_MAKE_TARGETS = all
+	# front targets for make
+	FRONT_TARGET = $(MACH_LOWERCASE)_mpi
+	# trilinos dependent libraries
+	TRILINOS_DEPENDENCIES = y12m parmetis superludist umfpack
+	# trilinos configure/cmake file:
+	TRILINOS_CONF_FILE = $(MACH_LOWERCASE)-goma-$(SERPAR_LOWERCASE)-cmake
+  </code></pre></div>
+  <p>“Key-linux-mpi-cmake-script” is for building trilinos, which we will discuss below.</p>
 
-  <p><code id="libraries">ARPACK:</code> Arnoldi Solver package. Google it. Again, you can also start with what we supply.</p>
+  <p>Finally, the remaining directories (distributions) are the required TPLs (third-party libraries). A brief
+    description of each and how acquired is given here (but unless otherwise noted you may just want to
+    contact Randy Schunk and get a copy from him, as in some rare cases we changed some things in each
+    to make them compatible with the overall make file).</p>
 
-  <p><code id="libraries">BLAS:</code> You can get this from the internet. Open source. Easy to build. However, if you get a copy
+  <p><code>BLAS</code>: You can get this from the internet. Open source. Easy to build. However, if you get a copy
     from us we have already made the changes in it to make the compilers compatible.</p>
 
-	<p><code id="libraries">cmake-2.8.12.2:</code> You can get this from the internet. Open source. Easy to build. However, if you get a copy
-    from us we have already made the changes in it to make the compilers compatible.</p>
+  <p><code>ARPACK</code>: Arnoldi Solver package. Google it. Again, you can also start with what we supply.</p>
 
-	<p><code id="libraries">hdf5-1.8.13:</code> You can get this from the internet. Open source. Easy to build. However, if you get a copy
-    from us we have already made the changes in it to make the compilers compatible.</p>
-
-	 <p><code id="libraries">lapack-3.2.1:</code> LAPACK is an optimized linear algebra package that trilinos packages
-    depend upon. Get from Sandia.</p>
-	
-	 <p><code id="libraries">netcdf-4.3.2:</code> Parallel graph partitioning library. Certain packages in Trilinos require
-    this.</p>
-	
-	 <p><code id="libraries">openmpi-1.6.4:</code> Parallel graph partitioning library. Certain packages in Trilinos require
-    this.</p>
-	
-	  <p><code id="libraries">ParMetis-3.1.1:</code> Parallel graph partitioning library. Certain packages in Trilinos require
-    this.</p>
-
-	
-  <p><code id="libraries">SEACAS-2013-19-03:</code> Please get this from source-forge. Sandia Analysis Package with all
+  <p><code>SEACAS-2012-09-10</code>: Please get this from source-forge. Sandia Analysis Package with all
     sorts of pre- and post-processing capabilities and the all important, and required exodus II
     database libraries. <a href="http://sourceforge.net/projects/seacas">http://sourceforge.net/projects/seacas</a> You will also need netcdf and hdf5
     packages for this but that is discussed below.</p>
 
-  <p><code id="libraries">Sparse:</code> sparse 1.3. You can get this from the web, but also from Sandia. Another direct solver that is
+  <p><code>front</code>: please get this from Sandia. Frontal solver that is rarely used now.</p>
+
+  <p><code>Sparse</code>: sparse 1.3. You can get this from the web, but also from Sandia. Another direct solver that is
     very robust and stable, but slow. Rarely used but important to have.</p>
 
-  <p><code id="libraries">SuperLU_DIST_2.3:</code> Parallel direct solver. Important package. Acquire from the web.</p>
+  <p><code>SuperLU_DIST_2.3</code>: Parallel direct solver. Important package. Acquire from the web.</p>
 
-  <p><code id="libraries">trilinos-10.10.2-Source:</code> Google trilinos and this download option will be obvious.
+  <p><code>trilinos-10.10.2-Source</code>: Google trilinos and this download option will be obvious.
     Please acquire this from the web. You will modify a provided script to build it. Trilinos is an
     essential collection of matrix solvers and other capabilities GOMA needs.</p>
 
-  <p><code id="libraries">UFconfig-3.7.1:</code> UMFPACK is the most often used direct solver. Probably need to acquire this
+  <p><code>lapack-3.2.1</code>: LAPACK is an optimized linear algebra package that trilinos packages
+    depend upon. Get from Sandia.</p>
+
+  <p><code>UMFPACK-5.4</code>: UMFPACK is the most often used direct solver. Probably need to acquire this
     from Sandia as of now as we have changes the build slightly.</p>
 
-  <p><code id="libraries">UMFPACK-5.4:</code> UMFPACK is the most often used direct solver. Probably need to acquire this
-    from Sandia as of now as we have changes the build slightly.</p>
+  <p><code>ParMetis-3.1.1</code>: Parallel graph partitioning library. Certain packages in Trilinos require
+    this.</p>
 
-  <p><code id="libraries">Y12M:</code> Yet another matrix solver required by certain packages in trilinos and goma.</p>
+  <p><code>Y12M</code>: Yet another matrix solver required by certain packages in trilinos and goma.</p>
 
-  
- <h3>Configure and Make Directories</h3>
- 
-  <p>Your directories and files should look like this in your “GOMA_ROOT” area:</p>
-  <div class="highlight">
-  
-    <pre> <code class="text language-text" data-lang="text">
-	ARPACK
-	BLAS
-	cmake-2.8.12.2
-	lapack-3.2.1
-	openmpi-1.6.4	
-	ParMetis-3.1.1
-	Seacas-2013-12-03
-	sparse
-	SuperLU_DIST_2.3
-	trilinos-10.10.2-Built
-	trilinos-10.10.2-Source
-	trilinos-10.10.2-Temp
-	UMFPACK-5.4
-	y12m
-		
-  </code></pre></div>
-  
+  <p>The remainder of this document takes the new user step-by-step to building this large distribution, and
+    ultimately building GOMA. These notes aren’t perfect.</p>
 
- 
   <ol>
     <li>Compilers, other libraries
       <p>
@@ -472,7 +402,5 @@ COPTIMIZEFLAGS</pre>
 
  </body>
 </html>
-
-
 
 

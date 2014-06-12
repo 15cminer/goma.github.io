@@ -77,6 +77,24 @@
 
 <p>For a more comprehensive introduction look at the <a href="/files/goma-capabilities.pdf">Goma Capabilities document (PDF)</a></p>
 
+<h2>Capabilities</h2>
+
+<p>Goma's capability is based on customer need</p>
+
+<ol>
+<li><p>Mechanics — Includes all major branches of mechanics and more. Conjugate capability.</p></li>
+<li><p>Material models and constitutive equations — Includes generalized Newtonian and VE for fluids, elastic and elastoviscoplastic for solids, Fickian, multicomponent, and non-Fickian fluxes, and more</p></li>
+<li><p>Free surface and free boundary tracking — Solidification surfaces, capillary free surfaces, consolidation fronts, mold filling fronts, saturation fronts, user prescribed kinematics and geometry, ablation fronts, and more</p></li>
+<li><p>Multidimensional with 2.5D capability. Full shell capability.</p></li>
+<li><p>Platform generality — High-end, high-performance, and commodity hardware</p></li>
+<li><p>User prescribed and user defined capability</p></li>
+<li><p>Fluid-structural interactions — Computational Lagrangian solids and ale in both solids and fluids with Eulerian-Eulerian methods an active research area</p></li>
+<li><p>Saturated and unsaturated, deformable, porous media — Poro-elastic and poro-plastic</p></li>
+<li><p>Full-Newton coupled algorithms and automated continuation, augmenting conditions, stability analysis — All in a production setting</p></li>
+<li><p>Other advanced features — Shell reduced order models, solid-model-based geometry support; advanced post processing features</p></li>
+<li><p>Pixel and Voxel-to-mesh capability</p></li>
+</ol>
+
 <h2>Features and Highlights</h2>
 
 <h3>Material Models - Fluids</h3>
@@ -96,7 +114,7 @@
   </li>
 </ul>
 
-<h3>Thermo-physical property and phase change models</h3>
+<h3>Thermo-physical Property and Phase Change Models</h3>
 
 <ul>
   <li>
@@ -121,7 +139,7 @@
   </li>
   <li>
     <p>
-      Liquid/Solid macrosegregation with Flemings-Mehrabian model
+      Liquid andSolid macrosegregation with Flemings-Mehrabian model
     </p>
   </li>
   <li>
@@ -130,24 +148,54 @@
     </p>
   </li>
 </ul>
+<h3>Shell Elements</h3>
+<ul>
+  <li>
+    <p>
+      Shell Element Technology can be easily integrated into a large-aspect-ratio structure (shell elements can be membranes, inextensible shell, lubrication, or porous)  
+    </p>
+  </li>
+  <li>
+    <p>
+      Goma 6.0 has integrated true curvilinear shell capability for lubrication (the first of its kind to our knowledge with continuum codes), porous, penetration, and integrated structure
+    </p>
+  </li>
+</ul>
+<h3>Mechanics and Algorithms</h3>
+<ul>
+  <li>
+    <p>
+      Comprehensive mechanics couplings allow the algorithms to run with minimal tuning  
+    </p>
+  </li>
+  <li>
+    <p>
+      Advanced, automated machinery allows for complex algorithms (augmenting condition capability, linear stability, and high-order continuation) 
+    </p>
+  </li>
+   <li>
+    <p>
+      Advanced, automated machinery allows for complex algorithms (augmenting condition capability, linear stability, and high-order continuation) and faster quadratic convergence
+    </p>
+  </li>
+</ul>
 
-<h2>Capabilities</h2>
+<h3>Advanced Analysis Capabilities</h3>
+<ul>
+  <li>
+    <p>
+      Augmenting conditions (volume, mesh constrains, optimization) allows extreme analysis precision    
+    </p>
+  </li>
+  <li>
+    <p>
+      ARPACK and ANAZAZI provide linear stability analysis in both 2D and 3D dynamic systems
+    </p>
+  </li>
+</ul>
 
-<p>Goma's capability is based on customer need</p>
 
-<ol>
-<li><p>Mechanics — Includes all major branches of mechanics and more. Conjugate capability.</p></li>
-<li><p>Material models and constitutive equations — Includes generalized Newtonian and VE for fluids, elastic and elastoviscoplastic for solids, Fickian, multicomponent, and non-Fickian fluxes, and more</p></li>
-<li><p>Free surface and free boundary tracking — Solidification surfaces, capillary free surfaces, consolidation fronts, mold filling fronts, saturation fronts, user prescribed kinematics and geometry, ablation fronts, and more</p></li>
-<li><p>Multidimensional with 2.5D capability. Full shell capability.</p></li>
-<li><p>Platform generality — High-end, high-performance, and commodity hardware</p></li>
-<li><p>User prescribed and user defined capability</p></li>
-<li><p>Fluid-structural interactions — Computational Lagrangian solids and ale in both solids and fluids with Eulerian-Eulerian methods an active research area</p></li>
-<li><p>Saturated and unsaturated, deformable, porous media — Poro-elastic and poro-plastic</p></li>
-<li><p>Full-Newton coupled algorithms and automated continuation, augmenting conditions, stability analysis — All in a production setting</p></li>
-<li><p>Other advanced features — Shell reduced order models, solid-model-based geometry support; advanced post processing features</p></li>
-<li><p>Pixel and Voxel-to-mesh capability</p></li>
-</ol>
+
 
 
     </div> <!-- /container -->
