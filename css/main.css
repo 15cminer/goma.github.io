@@ -20,6 +20,9 @@ color: grey;
 
 #p1 {
 text-align: justify;
+padding-left: 15px;
+padding-right: 15px;
+padding-top: 15px
 }
 
 #video {
@@ -57,4 +60,11 @@ background: rgba(1, 1, 1, .05);
 color: black;
 font-size: 14px;
 
+}
+
+#row3 {
+padding-left: 15px;
+padding-right: 15px;
+padding-bottom: 15px;
+padding-top: 15px
 }
