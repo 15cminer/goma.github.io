@@ -190,11 +190,12 @@
  <li>Untar SEACAS-2013-12-03<code id="libraries">tar -xzvf ~/Desktop/Downloads/Seacas2013-12-03.tar.gz</code></li>
  
  <li>Your SEACAS will be named 2013-12-03 after it is initially untared, rename it to Seacas-2013-12-03</li>
- <li>CD into Seacas-2013-12-03/TPL/hdf5 and make a directory called hdf5-source</li>
- <li>CD into hdf5-scource and untar hdf5<code id="libraries">tar -xzvf ~/Desktop/Downloads/hdf5-1.8.13.tar.gz</code></li>
+ <li>CD into Seacas-2013-12-03/TPL/hdf5</li>
+ <li>untar hdf5<code id="libraries">tar -xzvf ~/Desktop/Downloads/hdf5-1.8.13.tar.gz</code></li>
+ <li>rename the new hdf5 directory to hdf5-source</li>
  <p></p>
-  <li>CD into Seacas-2013-12-03/TPL/netcdf and make a directory called netcdf-4.3.2</li>
- <li>cd into netcdf-4.3.2 and untar netcdf<code id="libraries">tar -xzvf ~/Desktop/Downloads/netcdf-4.3.2.tar.gz</code></li>
+  <li>CD into Seacas-2013-12-03/TPL/netcdf</li>
+ <li>untar netcdf:<code id="libraries">tar -xzvf ~/Desktop/Downloads/netcdf-4.3.2.tar.gz</code></li>
  <p></p>
   <li>CD into your "GOMA_ROOT" and make a directory called UMFPACK-5.4</li>
  <li>cd into UMFPACK-5.4 and untar UMFPACK<code id="libraries">tar -xzvf ~/Desktop/Downloads/UMFPACK-5.4.0.tar.gz</code></li>
@@ -300,8 +301,8 @@ going to want these in your LD_LIBRARY_PATH. See below.
 	<li>
 	  The current directory Seacas-2013-12-03 will be your ACCESS root. Set the
 	  environment variable ACCESS to point to this area.
-	  <ul><li><code>setenv ACCESS `pwd`</code> (csh/tcsh)</li>
-		<li><code>export ACCESS=`pwd`</code> (sh/bash)</li></ul>
+	  <ul><li><code id="libraries">setenv ACCESS `pwd`</code> (csh/tcsh)</li>
+		<li><code id="libraries">export ACCESS=`pwd`</code> (sh/bash)</li></ul>
 	  In this example, you can also simply do:
 	  <pre>setenv ACCESS $GOMA_ROOT/SEACAS-2012-09-10</pre>
 	  <p>
@@ -365,6 +366,10 @@ going to want these in your LD_LIBRARY_PATH. See below.
 	      compilers.<p>
 	      <p>In a recent fresh build on a RHEL6 machine, I chose :</p>
 	      <pre>#define GCC4GFORTRAN 1</pre>
+		  <p>I also edited the #define X11Includes from:</p>
+	      <pre>#define X11Includes -I/usr/include/X11R6</pre>
+		  <p>To:</p>
+	      <pre>#define X11Includes -I/usr/include/X11</pre>
 	      <p>as I planned on using the gnu compilers.</p>
 	      <p>If you are building on a 64-bit system, define Build64BitAccess YES.</p>
 	      <p>NOTE: If you are using a gcc version prior to 4.1, then you cannot build the fortran-based utilities for
@@ -380,7 +385,10 @@ setenv LD_LIBRARY_PATH &gt;full path to openmpi/lib&lt;:$LD_LIBRARY_PATH
 setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	      <p>Of course the serial gcc, gfortran compilers should also be in your path.</p>
 	    </li>
+		
+	<h4>IMPORTANT: go into netcdf and hdf5 Makefiles and make sure that the version number is correct to the versions you downloaded</h4>
 	  </ol>
+	 
 	  <li>
 	    <p>Use the script ACCESS/scripts/buildSEACAS, which enters the commands for you. You should be in
 	    the directory specified as your AccessRoot in step 3 above. Then enter:</p>
@@ -496,9 +504,10 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	 <li>Make the Trilinos library.
 	  <ul>
 	     <li>Get the trilinos build key from our website and move it into the trilinos-10.10.2.Source file.</li>
-		  <li>Make a directory named trilinos-10.10.2-Temp</li>
-	    <li>cd into trilinos-10.10.2-Temp and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
-	  </ul>
+		  <li>Make a new directory named trilinos-10.10.2-<trilinos build name></li>
+	    <li>cd into trilinos-10.10.2-<trilinos build name> and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
+		<li>Then run: <code id="libraries">make</code> and <code id="libraries">make isntall</code></li>
+	 </ul>
 	</li>
       </ul>
 	</ol>
@@ -510,15 +519,16 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	<li>
 	  GOMA:
 	   <ul>
-	     <li>Go to the GitHub page of Goma.</li>
-		  <li>Make a directory named trilinos-10.10.2-Temp</li>
-	    <li>cd into trilinos-10.10.2-Temp and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
-	  </ul> 
+	     <li>Go to the GitHub page goma/goma.</li>
+		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	  </ul>
 	  <p>After the suitable makefile is chosen, read through the makefile itself to find the macros that need
 	    changing. Common macros include:</p>
 	  <pre>MACH, ARCH, GOMA_LIBS, MPI_TOP, GCC_TOP, SEAMS_DIR, TRILINOS_ARCH</pre>
 	  <p>After making sure that the paths are set correctly, run:</p>
-	  <pre>make -f Makefile_***</pre>
+	  <pre><li>make</li>
+	  <li>make install</li></pre>
 	  <p>I did not run into any issues with building goma. Just make sure all the paths are pointed to the correct
 	    compilers and the libraries.</p>
 	</li>
@@ -526,6 +536,11 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	
 	<h4>Build brk/fix</h4>
 	<li><p>brk/fix:</p>
+	<ul>
+	     <li>Go to the GitHub page goma/brkfix.</li>
+		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	  </ul>
 	  <p>Check the following macros before doing a make.</p>
 	  <pre>
 CC
