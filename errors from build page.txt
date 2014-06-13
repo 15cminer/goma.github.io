@@ -1,0 +1,46 @@
+  <p>I had to deal with the
+	  following most recently:</p>
+	  <ul>
+	    <li><p>ARPACK: I had to go grab mpif.h from the openmpi/include directory and put it into
+		the directory instructed by ARmake.inc<p></li>
+	    <li>Other minor annoyances I had to track down and fix.</li>
+	    <li>Ultimately, this script will hang on the trilinos build. To build trilinos individually, do
+	      the following:</li>
+	    <ul>
+	      <li>Go to a scratch area on your machine. /scratch or someplace where there is
+		plenty of disk space.</li>
+	      <li>Make a build directory for trilinos there, like mkdir trilinos_build</li>
+	      <li>cd trilinos_build</li>
+	      <li>cp $GOMA_ROOT/Key-linux-mpi-cmake-script .</li>
+	      <li>Modify all of the library locations as necessary in
+		this script.
+		Specifally pay attention to the
+		fortran library. It worked better when I just set
+		this directly to the library path:</li>
+	      <pre>FORTRAN_LIBS=”/usr/lib/gcc/x86_64_linux_/4.4.4/libgfortran.a”</pre>
+	      <li>Make sure all other cmake directives are pointing to
+		the correct libraries. They may be a lot of them.</li>
+	      
+	      <pre>
+sh key-linux-mpi-cmake-script
+make (this takes about 2 hours)
+make install</pre>
+	      
+	      <p>note that you may want to rerun the linux script if
+	      libraries are updated/changed. Reissuing a make just
+	      picks up where it left off.
+	      Also, if an error is
+	      persistent in the cmake step, blow away the entire
+	      build directory and create a new one and start over
+	      with the updated script.</p>
+
+	      <li> Ignore this error:</li>
+	      <pre>rm: cannot remove `CMakeCache.txt': No such file or directory</pre>
+
+	    </ul>
+	    <p>There were a couple headers files (umfpack.h and amd.h) that were missing from the amesos
+	      source directory which prevented amesos from building. I had copy them over from the UMFPACK
+	      and AMD directories.</p>
+	  </ul>
+	</li>
+	</ul>
