@@ -52,7 +52,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="main.html">Goma Home</a>
+             <a class="navbar-brand" href="main.html">Goma Home</a>
         </div>
         <div class="navbar-collapse collapse" id="topBar">
           <ul class="nav navbar-nav">
@@ -70,52 +70,59 @@
 		</table>
     </div>
 
-	 <div id="navigation">
-	 
-
- 
-  </div>
-  
-   <table><tr><td> 	
-   <div class="col-sm-3 col-md-2 sidebar" id="sidebar">
-          <ul class="nav nav-sidebar">
-             <li class="active"><a href="about.html">Overview</a></li>
-            <li><a href="files/goma-manual.pdf">Goma Manual</a></li>
-			<li><a href="Support.html">Support</a></li>
-			<li><a href="industriesAndProducts.html">Industries and Producs</a></li>
-			<li><a href="publications.html">Publications</a></li>
-			<li><a href="contactUS.html">Research Group</a></li>
-		<!--	<li><a href="#">Research Group</a></li>
-			 follow our progress 
-					Contact us-->
-          </ul>
-        </div>
-	</td>
-	<td>
+	<div id="build">
 	<!--<div class="container">
       <div class="col-md-6">-->
 	 
-<h1> Contacts </h1>
-<h3> Goma 6.0 help: </h3>
-<p> To get technical support about goma please e-mail our active Goma work force.</p>
-<li> Weston Ortiz: <a href="mailto:weston@wortiz.com">
-    weston@wortiz.com
-</a></li>
-<li>Andrew Cochrane: <a href="mailto:acochrane@gmail.com">
-    acochrane@gmail.com
-</a></li>
-<li>Kris Tjiptowidjojo: <a href="mailto:tjiptowi@unm.edu">
-    tjiptowi@unm.edu
-</a></li>
-<h4>Goma Project Manager</h4>
-<p>Randall Schunk</p>
-<p>Sandia National Labrotories</p>
-<p><a href="mailto:prschun@sandia.gov">
-    prschun@sandia.gov
-</a></p>
+	<h1>Goma 6.0 Quick-Build BETA</h1>
 
+	<h4>Welcome to the new BETA Quick-Build page for Goma 6.0! We have made a run script that will allow you to easily download all of the necesarry supporting files for Goma 6.0, and we have also included simple instructions on how to correctly configure Goma 6.0 so that it is ready for immediate use!</h4>
+	
+   <p>6/12/2014 – C. J. Miner</p>
+  
+ 
+	<h3>Build Goma</h3>	
+	<li>
+	  GOMA:
+	   <ul>
+	     <li>Go to the GitHub page goma/goma.</li>
+		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	  </ul>
+	  <p>After the suitable makefile is chosen, read through the makefile itself to find the macros that need
+	    changing. Common macros include:</p>
+	  <pre>MACH, ARCH, GOMA_LIBS, MPI_TOP, GCC_TOP, SEAMS_DIR, TRILINOS_ARCH</pre>
+	  <p>After making sure that the paths are set correctly, run:</p>
+	  <pre><li>make</li>
+	  <li>make install</li></pre>
+	  <p>I did not run into any issues with building goma. Just make sure all the paths are pointed to the correct
+	    compilers and the libraries.</p>
+	</li>
+	
+	
+	<h4>Build brk/fix</h4>
+	<li><p>brk/fix:</p>
+	<ul>
+	     <li>Go to the GitHub page goma/brkfix.</li>
+		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	  </ul>
+	  <p>Check the following macros before doing a make.</p>
+	  <pre>
+CC
+ACCESS
+COPTIMIZEFLAGS</pre>
+	  <p>Brk/fix compiled without any major issues.</p>
 
+	</li>
+	
+    
+</div>
+</div>
 
  </body>
 </html>
+
+
+
 

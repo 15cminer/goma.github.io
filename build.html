@@ -73,12 +73,24 @@
 	<div id="build">
 	<!--<div class="container">
       <div class="col-md-6">-->
-	 
-	<h1>Goma 6.0 build instructions</h1>
-
+	 <table><tr><td> 
+	<h1>Goma 6.0 build instructions</h1> 
+	
   <p>11/03/2012 – Abishek</p>
 
   <p>1/25/2013 – P. R. Schunk, revised</p>
+  
+   <p>6/12/2014 – C. J. Miner, revised</p>
+   
+   </td>
+   <td>
+   <div id="BETAQuickBuild">
+  <h3><a href="betaQuickBuild.html">New! Goma BETA Quick-Build!</a></h3>
+  <p>Check out our new fast and easy way to build goma by clicking here!</p>
+  </div>
+  </td>
+  </tr>
+  </table>
   
   <p>This document takes the new user step-by-step to building this large distribution, and
     ultimately building GOMA.</p>
@@ -112,7 +124,7 @@
 <h4>Download</h4>
 <p>Here are the directories (distributions) and TPLs (third-party libraries) that are required. A brief
     description of each and how they can be acquired is given here.</p>
-	<p> Note: You can get all of this from our starting package if you contact us at <a href="google.com">blah blah</a>. We will provide you with a full set of the Goma 6.0 libraries and directories necesarry to build goma.</p>
+	<p> Note: You can get all of this from our starting package if you contact us at <a href="mailto:prschun@sandia.gov">prschun@sandia.gov</a>. We will provide you with a full set of the Goma 6.0 libraries and directories necesarry to build goma.</p>
 
 	
   <p><code id="libraries">AMD-2.2.4:</code> Approximate minimum degree ordering package that is essential for UMFPACK. You can download AMD-2.2.4 here: <a href="http://www.cise.ufl.edu/research/sparse/amd/"> http://www.cise.ufl.edu/research/sparse/amd/.</a></p>
@@ -168,9 +180,7 @@
  <li>Untar ARPACK Patch<code id="libraries">tar -xzvf ~/Desktop/Downloads/arpackPatch.tar.gz</code></li>
 <p></p>	
 	<li>Untar openmpi<code id="libraries">tar -xzvf ~/Desktop/Downloads/openmpi-1.6.4.tar.gz</code></li>
-	 <p></p>
-	 <li>Untar ARPACK<code id="libraries">tar -xzvf ~/Desktop/Downloads/arpack96.tar.gz</code></li>
-<p></p>	
+	 <p></p>	
 	<li>Untar BLAS<code id="libraries">tar -xzvf ~/Desktop/Downloads/blas.tgz</code></li>
 <p></p>	
 	<li>Untar Cmake<code id="libraries">tar -xzvf ~/Desktop/Downloads/cmake-2.8.12.2.tar.gz</code></li>
@@ -181,7 +191,7 @@
 <p></p>
  <li>Untar lapack<code id="libraries">tar -xzvf ~/Desktop/Downloads/lapack-3.2.1.tgz</code></li>
  <p></p>
- <li>Untar y12m<code id="libraries">tar -xzvf ~/Desktop/Downloads/y12m.tgz</code></li>
+ <li>Untar y12m<code id="libraries">tar -xzvf ~/Desktop/Downloads/netlibfiles.tgz</code></li>
  <p></p>
  <li>Untar ParMetis<code id="libraries">tar -xzvf ~/Desktop/Downloads/ParMetis-3.1.1.tar.gz</code></li>
  <p></p>
@@ -235,7 +245,7 @@
       <p>Some notes on acquiring these compilers and libraries:</p>
       
       <ul>
-	<li> cmake-2.8.10.2 package should work from the cmake website. Others above 2.7 should work too. Build and install as follows:</li>
+	<li> cmake-2.8.12.2 package should work from the cmake website. Others above 2.7 should work too. Build and install as follows:</li>
 	<ul>
 	
 	  <li><code id="libraries">cd cmake-2.8.10.2</code></li>
@@ -246,10 +256,10 @@
       </ul>
       
       <ul>
-	<li>openmpi-1.6.3 package is also the right level right now. Build as follows:
+	<li>openmpi-1.6.4 package is also the right level right now. Build as follows:
 	  <ul>
-	     <li><code id="libraries">cd openmpi-1.6.3</code></li>
-	    <li><code id="libraries">./configure --prefix=/home/goma/….&lt;full path to openmpi directory&gt;/openmpi-1.6.3</code>
+	     <li><code id="libraries">cd openmpi-1.6.4</code></li>
+	    <li><code id="libraries">./configure --prefix=/home/goma/….&lt;full path to openmpi directory&gt;/openmpi-1.6.4</code>
 	      (You can also install in /usr/bin, etc. if you have root access. )</li>
 	    <li><code id="libraries">make</code></li>
 		 <li><code id="libraries">make install</code></li>
@@ -277,7 +287,7 @@ going to want these in your LD_LIBRARY_PATH. See below.
 	  the path to the SEAMS distribution. In this example, it would be
 	  <pre>
 
-    ACCESSROOT = $GOMA_ROOT/SEACAS-2012-09-10
+    ACCESSROOT = $GOMA_ROOT/SEACAS-2013-12-03
 	  </pre>
 	</p>
 	<ol>
@@ -304,7 +314,7 @@ going to want these in your LD_LIBRARY_PATH. See below.
 	  <ul><li><code id="libraries">setenv ACCESS `pwd`</code> (csh/tcsh)</li>
 		<li><code id="libraries">export ACCESS=`pwd`</code> (sh/bash)</li></ul>
 	  In this example, you can also simply do:
-	  <pre>setenv ACCESS $GOMA_ROOT/SEACAS-2012-09-10</pre>
+	  <pre>setenv ACCESS $GOMA_ROOT/SEACAS-2013-12-03</pre>
 	  <p>
 	  If you do an 'ls $ACCESS/ACCESS', you should see something similar to:
 	  <pre>applications Imakefile itools libraries netcdf scripts serial_mpi</pre>
@@ -358,7 +368,7 @@ going to want these in your LD_LIBRARY_PATH. See below.
 	      below.</p>
 	      </li>
 	    <li>
-	      <p>platform.cf (platform=hardware or os type) [linux.cf, darwin.cf]. The platform.cf configuration
+	      <p>next edit your platform.cf in the same cf directory(platform=hardware or os type) [linux.cf, darwin.cf]. The platform.cf configuration
 	      file contains system-specific settings; in particular compiler paths. The linux.cf file is the most
 	      complicated due to the multitude of compilers available. Pick the define corresponding to the
 	      compilers you will be using and then search for that #if block and make sure paths are correct; the
@@ -457,7 +467,7 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 		 <li>Inside the ARmake.inc file edit the home function to resemble where you untared your ARPACK and change your flags</li>
 		 <li>For us, we changed home to <code id="libraries">$(HOME)/GOMA_ROOT/ARPACK</code></li>
 		 <li>We then changed FC to equal f95</li>
-	    <li>go back to the ARPACK dir and issue the command:<code id="libraries">make install all</code></li>
+	    <li>go back to the ARPACK dir and issue the command:<code id="libraries">make all</code></li>
 	  </ul>
 	</li>
 	
@@ -476,22 +486,22 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	  <ul>
 	     <li><code id="libraries">cd lapack-3.2.1</code></li>
 		 <li>make the make.inc.example into a make.inc</li>
-		 <li>edit the BLASLIB to find your BLAS lib.a</li>
+		 <li>edit the BLASLIB in the new make.inc to find your BLAS lib.a</li>
 		 <li>For us, we changed BLASLIB to $(home)/GOMA_ROOT/BLAS/blas_LINUX.a</code></li>
 	    <li>in lapack-3.2.1 run:<code id="libraries">make</code></li>
 	  </ul>
 	</li>
 	
-	    <ul>
+	    
 	<li>Make the sparse library.
 	  <ul>
 	     <li><code id="libraries">cd sparse/src</code></li>
 	    <li><code id="libraries">make</code></li>
 	  </ul>
 	</li>
-      </ul>
      
-	   <ul>
+     
+	   
 	<li>Make the UMFPACK library.
 	  <ul>
 	     <li>cd to UF config and edit the UFconfig.mk file</li>
@@ -499,13 +509,13 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	    <li>cd into UMFPACK and run: <code id="libraries">make</code></li>
 	  </ul>
 	</li>
-      </ul>
+      
 	 
 	 <li>Make the Trilinos library.
 	  <ul>
 	     <li>Get the trilinos build key from our website and move it into the trilinos-10.10.2.Source file.</li>
-		  <li>Make a new directory named trilinos-10.10.2-<trilinos build name></li>
-	    <li>cd into trilinos-10.10.2-<trilinos build name> and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
+		  <li>Make a new directory named trilinos-10.10.2-&lt;trilinos build name&gt;</li>
+	    <li>cd into trilinos-10.10.2-&lt;trilinos build name&gt; and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
 		<li>Then run: <code id="libraries">make</code> and <code id="libraries">make isntall</code></li>
 	 </ul>
 	</li>
