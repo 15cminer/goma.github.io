@@ -90,12 +90,12 @@
 	  GOMA:
 	   <ul>
 	    <li>Go to the GitHub page goma/goma.</li>
-		<li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
-		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into where you want your goma directory to be and run <code id="libraries">git clone <Goma URL></code></li>
 	  </ul>
-	  <p>After the suitable makefile is chosen, read through the makefile itself to find the macros that need
-	    changing. Common macros include:</p>
-	  <pre>MACH, ARCH, GOMA_LIBS, MPI_TOP, GCC_TOP, SEAMS_DIR, TRILINOS_ARCH</pre>
+	  <p>cd into your new goma directory and change the settings.mk-example into your settings.mk file by running <code id="libraries">mv settings.mk-example settings.mk</code></p>
+	  <p>Edit the variables GOMA_LIBS, SEACAS_TOP, and PREFIX  in the settings.mk file</p>
+	  <p>Edit the variables ARPACK_LIB, UMFPACK_TOP, SUPERLU_LIB in the src Makefile</p>
+	  <p>In the src Makefile, set the FRONT_LIB equal to nothing because front is not open source, so this Goma 6.0 is running without front.</p>
 	  <p>After making sure that the paths are set correctly, run:</p>
 	  <pre><li>make</li>
 	  <li>make install</li></pre>
@@ -108,8 +108,7 @@
 	<li><p>brk/fix:</p>
 	<ul>
 	    <li>Go to the GitHub page goma/brkfix.</li>
-	    <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
-		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your Goma directory and run <code id="libraries">git clone <brk/fix URL></code></li>
 	</ul>
 	  <p>Check the following macros before doing a make.</p>
 	<pre>
