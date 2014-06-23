@@ -64,10 +64,10 @@
 			
           </ul>
         </div><!--/.nav-collapse -->
-      </div>
-	  </td>
-		</tr>
-		</table>
+    </div>
+	</td>
+	</tr>
+	</table>
     </div>
 
 	<div id="build">
@@ -75,19 +75,23 @@
       <div class="col-md-6">-->
 	 
 	<h1>Goma 6.0 Quick-Build BETA</h1>
+	 <p>6/20/2014 – C. J. Miner</p>
 
 	<h4>Welcome to the new BETA Quick-Build page for Goma 6.0! We have made a run script that will allow you to easily download all of the necesarry supporting files for Goma 6.0, and we have also included simple instructions on how to correctly configure Goma 6.0 so that it is ready for immediate use!</h4>
 	
-   <p>6/12/2014 – C. J. Miner</p>
-  
+  <h3>Download build script</h3>
+  <p>Download the build script here</p>
+  <p>Untar the build script, go into the directory, and move the build script to where you want the Goma Libraries to be made.</p>
+  <p>Once the build script is in the desired location, simply run the build script by entering <p><code id="libraries">buildLibScript.sh</code> in the command prompt.</p>
+  <p>As soon as that finishes downloading, you have the essential libraries inorder to run Goma 6.0!</p>
  
 	<h3>Build Goma</h3>	
 	<li>
 	  GOMA:
 	   <ul>
-	     <li>Go to the GitHub page goma/goma.</li>
-		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
-			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	    <li>Go to the GitHub page goma/goma.</li>
+		<li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
 	  </ul>
 	  <p>After the suitable makefile is chosen, read through the makefile itself to find the macros that need
 	    changing. Common macros include:</p>
@@ -103,15 +107,16 @@
 	<h4>Build brk/fix</h4>
 	<li><p>brk/fix:</p>
 	<ul>
-	     <li>Go to the GitHub page goma/brkfix.</li>
-		  <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
-			<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
-	  </ul>
+	    <li>Go to the GitHub page goma/brkfix.</li>
+	    <li>make a directory seprate from your GOMA_ROOT to build Goma.</li>
+		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your new Goma directory and run <code id="libraries">git clone <Goma URL></code></li>
+	</ul>
 	  <p>Check the following macros before doing a make.</p>
-	  <pre>
-CC
-ACCESS
-COPTIMIZEFLAGS</pre>
+	<pre>
+		CC
+		ACCESS
+		COPTIMIZEFLAGS
+	</pre>
 	  <p>Brk/fix compiled without any major issues.</p>
 
 	</li>

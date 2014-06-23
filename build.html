@@ -63,11 +63,11 @@
 			<li><a href="http://chtm1.unm.edu:8090">Discussion Forums</a></li>
 			
           </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-	  </td>
-		</tr>
-		</table>
+    </div><!--/.nav-collapse -->
+    </div>
+	</td>
+	</tr>
+	</table>
     </div>
 
 	<div id="build">
@@ -80,7 +80,7 @@
 
   <p>1/25/2013 – P. R. Schunk, revised</p>
   
-   <p>6/12/2014 – C. J. Miner, revised</p>
+  <p>6/12/2014 – C. J. Miner, revised</p>
    
    </td>
    <td>
@@ -101,7 +101,7 @@
  promises.</p>
   
    <div id="buildOverview">
-  <h3>Overview</h3>
+   <h3>Overview</h3>
 	<ol>
 <li><p>Description and download location of each necessary directories and third-party libraries(TPLs)</p></li>
 <li><p>Create your own directory filled with the essential directories</p></li>
@@ -111,13 +111,13 @@
 </ol>
 </div>
  <h3>Download Directories and TPLs</h3>
-  <p>First you need to acquire the GOMA software distribution.</p>
+ <p>First you need to acquire the GOMA software distribution.</p>
  <p>If you don’t have root access, and your machine has on it cmake and openmpi, then you will not need
     those two libraries. Cmake is rarer than Openmpi, but in any case you want to determine whether you
     have these. Cmake is used to build trilinos. Openmpi is required for all packages if you are to build 
 	for parallel capability. In this build guide, we started without Cmake and Openmpi.</p>
 
-  <p>If you have root access, and you are building on a server of some sort, you may want to acquire Cmake
+ <p>If you have root access, and you are building on a server of some sort, you may want to acquire Cmake
     and Openmpi and build and install in the usual default locations, like /usr/lib or /usr/local/lib etc., or
     even in /usr/bin for the executables. You may also have a shared area to build these tools in. You can
     also just simply work with your administrator to acquire these packages.</p>
@@ -127,23 +127,23 @@
 	<p> Note: You can get all of this from our starting package if you contact us at <a href="mailto:prschun@sandia.gov">prschun@sandia.gov</a>. We will provide you with a full set of the Goma 6.0 libraries and directories necesarry to build goma.</p>
 
 	
-  <p><code id="libraries">AMD-2.2.4:</code> Approximate minimum degree ordering package that is essential for UMFPACK. You can download AMD-2.2.4 here: <a href="http://www.cise.ufl.edu/research/sparse/amd/"> http://www.cise.ufl.edu/research/sparse/amd/.</a></p>
+	<p><code id="libraries">AMD-2.2.4:</code> Approximate minimum degree ordering package that is essential for UMFPACK. You can download AMD-2.2.4 here: <a href="http://www.cise.ufl.edu/research/sparse/amd/"> http://www.cise.ufl.edu/research/sparse/amd/.</a></p>
 
-  <p><code id="libraries">ARPACK:</code> Arnoldi Solver package. Download arpack96.tar.gz and the patch patch.tar.gz here: <a href="http://www.caam.rice.edu/software/ARPACK/">http://www.caam.rice.edu/software/ARPACK/.</a>.</p>
+	<p><code id="libraries">ARPACK:</code> Arnoldi Solver package. Download arpack96.tar.gz and the patch patch.tar.gz here: <a href="http://www.caam.rice.edu/software/ARPACK/">http://www.caam.rice.edu/software/ARPACK/.</a>.</p>
 
-  <p><code id="libraries">BLAS:</code> BLAS is the standard building blocks for performing basic vector and matrix operations. You can get this from the internet here: <a href="http://www.netlib.org/blas/">http://www.netlib.org/blas/</a>. Open source. Easy to build. 
+	<p><code id="libraries">BLAS:</code> BLAS is the standard building blocks for performing basic vector and matrix operations. You can get this from the internet here: <a href="http://www.netlib.org/blas/">http://www.netlib.org/blas/</a>. Open source. Easy to build. 
 
 	<p><code id="libraries">cmake-2.8.12.2:</code> Cmake manages the build process in an operating system in a compiler-independent manner. You can get this from the internet here: <a href="http://www.cmake.org/cmake/resources/software.html">http://www.cmake.org/cmake/resources/software.html</a>. Open source. Easy to build. Make sure to get cmake-2.8.12.2.tar.gz.</p>
 
 	<p><code id="libraries">hdf5-1.8.13:</code> Hierarchical Data Format that is necessary for SEACAS. You can get this here: <a href="http://www.hdfgroup.org/HDF5/release/obtainsrc.html">http://www.hdfgroup.org/HDF5/release/obtainsrc.html</a>. Open source. Easy to build.</p>
 
-	 <p><code id="libraries">lapack-3.2.1:</code> LAPACK is an optimized linear algebra package that trilinos packages depend upon. Get LAPACK: <a href="http://www.netlib.org/lapack/#_lapack_version_3_2_1">http://www.netlib.org/lapack/#_lapack_version_3_2_1</a></p>
+	<p><code id="libraries">lapack-3.2.1:</code> LAPACK is an optimized linear algebra package that trilinos packages depend upon. Get LAPACK: <a href="http://www.netlib.org/lapack/#_lapack_version_3_2_1">http://www.netlib.org/lapack/#_lapack_version_3_2_1</a></p>
 	
-	 <p><code id="libraries">netcdf-4.3.2:</code> A set of software libraries that supports SEACAS. Get netcdf-4.3.2 here: <a href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a>.</p>
+	<p><code id="libraries">netcdf-4.3.2:</code> A set of software libraries that supports SEACAS. Get netcdf-4.3.2 here: <a href="http://www.unidata.ucar.edu/downloads/netcdf/index.jsp">http://www.unidata.ucar.edu/downloads/netcdf/index.jsp</a>.</p>
 	
-	 <p><code id="libraries">openmpi-1.6.4:</code> Message Passing Interface. Get Openmpi-1.6.4: <a href="http://www.open-mpi.org/software/ompi/v1.6/">http://www.open-mpi.org/software/ompi/v1.6/</a>.</p>
+	<p><code id="libraries">openmpi-1.6.4:</code> Message Passing Interface. Get Openmpi-1.6.4: <a href="http://www.open-mpi.org/software/ompi/v1.6/">http://www.open-mpi.org/software/ompi/v1.6/</a>.</p>
 	
-	  <p><code id="libraries">ParMetis-3.1.1:</code> Parallel graph partitioning library. Certain packages in Trilinos require this. Get ParMetis-3.1.1: <a href="http://glaros.dtc.umn.edu/gkhome/fsroot/sw/parmetis/OLD">http://glaros.dtc.umn.edu/gkhome/fsroot/sw/parmetis/OLD</a></p>
+	<p><code id="libraries">ParMetis-3.1.1:</code> Parallel graph partitioning library. Certain packages in Trilinos require this. Get ParMetis-3.1.1: <a href="http://glaros.dtc.umn.edu/gkhome/fsroot/sw/parmetis/OLD">http://glaros.dtc.umn.edu/gkhome/fsroot/sw/parmetis/OLD</a></p>
 
 	
   <p><code id="libraries">SEACAS-2013-12-03:</code> Please get this from source-forge. Sandia Analysis Package with all
