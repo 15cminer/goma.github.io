@@ -92,11 +92,9 @@
 	    <li>Go to the GitHub page goma/goma.</li>
 		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into where you want your goma directory to be and run <code id="libraries">git clone <Goma URL></code></li>
 	  </ul>
-	  <p>cd into your new goma directory and change the settings.mk-example into your settings.mk file by running <code id="libraries">mv settings.mk-example settings.mk</code></p>
+	  <p>cd into your new goma directory and change the settings.mk-example into your settings.mk file by running <code id="libraries">cp settings.mk-example settings.mk</code></p>
 	  <p>Edit the variables GOMA_LIBS, SEACAS_TOP, and PREFIX  in the settings.mk file</p>
-	  <p>Edit the variables ARPACK_LIB, LAPACK_LIB, BLAS_LIB, SPARSE_LIB, UMFPACK_TOP, SUPERLU_LIB, in the src Makefile</p>
-	  <p>In the src Makefile, set the FRONT_LIB equal to nothing because front is not open source, so this Goma 6.0 is running without front.</p>
-	  <p>In the src Makefile, add <code id="libraries">-lteuchos</code> to the end of AMESOS_LIB and remove the TEUCHOS_LIB completely</p>
+	  <p>In the settings.mk, add <li><code id="libraries">FRONT_LIB = </code></li> and <li><code id="libraries">UMFPACK_TOP = $(GOMA_LIBS)/UMFPACK-5.4/UMFPACK </code></li> after the PREFIX.</p>
 	  <p>After making sure that the paths are set correctly, run:</p>
 	  <pre><li>make</li>
 	  <li>make install</li></pre>
