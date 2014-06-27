@@ -156,8 +156,8 @@
 
   <p><code id="libraries">SuperLU_DIST_2.3:</code> Parallel direct solver. Important package. Make sure to get SuperLU version 2.3. Acquire here: <a href="http://crd-legacy.lbl.gov/~xiaoye/SuperLU/">http://crd-legacy.lbl.gov/~xiaoye/SuperLU/</a>.</p>
 
-  <p><code id="libraries">trilinos-10.10.2-Source:</code> Google trilinos and this download option will be obvious.
-    Please acquire trilinos-10.10.2 here: <a href="http://trilinos.sandia.gov/download/trilinos-10.10.html">http://trilinos.sandia.gov/download/trilinos-10.10.html</a> You will modify a provided script to build it. Trilinos is an
+  <p><code id="libraries">trilinos-11.8.1-Source:</code> Google trilinos and this download option will be obvious.
+    Please acquire trilinos-11.8.1 here: <a href="http://trilinos.sandia.gov/download/files/trilinos-11.8.1-Source.tar.gz">http://trilinos.sandia.gov/download/files/trilinos-11.8.1-Source.tar.gz</a> You will modify a provided script to build it. Trilinos is an
     essential collection of matrix solvers and other capabilities GOMA needs.</p>
 
   <p><code id="libraries">UFconfig-3.7.1:</code> A key component for UMFPACK. Get here:<a href="http://www.cise.ufl.edu/research/sparse/UFconfig/">http://www.cise.ufl.edu/research/sparse/UFconfig/</a></p>
@@ -195,7 +195,7 @@
  <p></p>
  <li>Untar ParMetis<code id="libraries">tar -xzvf ~/Desktop/Downloads/ParMetis-3.1.1.tar.gz</code></li>
  <p></p>
- <li>Untar trilinos<code id="libraries">tar -xzvf ~/Desktop/Downloads/trilinos-10.10.2-Source.tar.gz</code></li>
+ <li>Untar trilinos<code id="libraries">tar -xzvf ~/Desktop/Downloads/trilinos-11.8.1-Source.tar.gz</code></li>
  <p></p>
  <li>Untar SEACAS-2013-12-03<code id="libraries">tar -xzvf ~/Desktop/Downloads/Seacas2013-12-03.tar.gz</code></li>
  
@@ -228,9 +228,9 @@
 	Seacas-2013-12-03
 	sparse
 	SuperLU_DIST_2.3
-	trilinos-10.10.2-Built
-	trilinos-10.10.2-Source
-	trilinos-10.10.2-Temp
+	trilinos-11.8.1-Built
+	trilinos-11.8.1-Source
+	trilinos-11.8.1-Temp
 	UMFPACK-5.4
 	y12m
 		
@@ -513,9 +513,9 @@ setenv PATH /usr/…fullpath to openmpi/bin:$PATH</pre>
 	 
 	 <li>Make the Trilinos library.
 	  <ul>
-	     <li>Get the trilinos build key from our website and move it into the trilinos-10.10.2.Source file.</li>
-		  <li>Make a new directory named trilinos-10.10.2-&lt;trilinos build name&gt;</li>
-	    <li>cd into trilinos-10.10.2-&lt;trilinos build name&gt; and run: <code id="libraries">../trilinos-10.10.2-Source/Key</code></li>
+	     <li>Get the trilinos build key from our website and move it into the trilinos-11.8.1-Source file.</li>
+		  <li>Make a new directory named trilinos-11.8.1-&lt;trilinos build name&gt;</li>
+	    <li>cd into trilinos-11.8.1-&lt;trilinos build name&gt; and run: <code id="libraries">../trilinos-11.8.1-Source/Key</code></li>
 		<li>Then run: <code id="libraries">make</code> and <code id="libraries">make isntall</code></li>
 	 </ul>
 	</li>

@@ -2,16 +2,13 @@
 width: 80%;
 background: rgba(1, 1, 1, .1);
 box-shadow: 10px 10px 5px #888888;
-
 }
 #sidebar a {
 font-size: 14px;
 padding-left: 15px;
 padding-right: 15px;
-
 color: #3399FF;
 text-decoration: none;
-
 }
 
 #sidebar a:hover {
@@ -59,7 +56,6 @@ padding-top: 15px
 background: rgba(1, 1, 1, .05);
 color: black;
 font-size: 14px;
-
 }
 
 #row3 {
@@ -75,4 +71,10 @@ padding-right: 15px;
 padding-bottom: 15px;
 padding-top: 15px;
 text-align: center;
+}
+
+#fluid {
+padding-right: 15px;
+padding-bottom: 15px;
+padding-top: 25px;
 }
