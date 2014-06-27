@@ -1,23 +1,24 @@
 #!/bin/bash
 
-GOMA_LIB=$HOME/gomaScript/gomaLib
+GOMA_LIB=$HOME/gomaLib
+
+MAKE_JOBS=10
+
+OWNER=guts
 
 
-
-OWNER=cminer
-
-
-
-FORTRAN_COMPILER=/home/cminer/local/bin/mpif90
 FORTRAN_LIBS=-lgfortran
 
-
 OPENMPI_TOP=$GOMA_LIB/openmpi-1.6.4
+export PATH=$OPENMPI_TOP/bin:$PATH
+FORTRAN_COMPILER=$OPENMPI_TOP/bin/mpif90
+
 
 export MPI_BASE_DIR=$OPENMPI_TOP
 export $GOMA_LIB
 export $OWNER
 export $OPENMPI_TOP
+export $MAKE_JOBS
 
 ARCHIVE_NAMES=("AMD-2.2.4.tar.gz" \
 "arpack96.tar.gz" \
@@ -289,14 +290,14 @@ mv y12m-1.0 y12m
 # make cmake
 cd cmake-2.8.12.2
 ./bootstrap --prefix=$GOMA_LIB/cmake-2.8.12.2
-make -j10
+make -j$MAKE_JOBS
 make install
 cd ../
 
 #make openmpi
 cd openmpi-1.6.4
 ./configure --prefix=$GOMA_LIB/openmpi-1.6.4
-make -j10
+make -j$MAKE_JOBS
 make install
 cd ../
 
@@ -321,13 +322,13 @@ cd ../
 
  #make BLAS
 cd BLAS
-make -j10
-cp libblas_LINUX.a libblas.a
+make -j$MAKE_JOBS
+cp blas_LINUX.a libblas.a
 cd ../
 
 #make parMetis
 cd ParMetis-3.1.1
-make -j10
+make -j$MAKE_JOBS
 cd ../	
 
 
@@ -352,13 +353,13 @@ cd lapack-3.2.1
 mv make.inc.example make.inc
 echo "$LAPACK_PATCH" > make.patch
 patch make.inc < make.patch
-make -j10
+make -j$MAKE_JOBS
 cp lapack_LINUX.a liblapack.a
 cd ..
 
 #make sparse
 cd sparse/src
-make -j10
+make -j$MAKE_JOBS
 cd ../lib/
 cp sparse.a libsparse.a
  cd ../../
@@ -368,7 +369,7 @@ cd UMFPACK-5.4/UFconfig
 echo "$UFCONFIG_PATCH" > UFconfig.patch
 patch UFconfig.mk < UFconfig.patch
 cd ../UMFPACK
-make -j10
+make -j$MAKE_JOBS
 cd ../
 cp AMD/Include/amd.h UMFPACK/Include
 cp AMD/Include/amd_internal.h UMFPACK/Include
@@ -505,7 +506,7 @@ cmake \
 $EXTRA_ARGS \
 $GOMA_LIB/trilinos-11.8.1-Source
 
-make -j10
+make -j$MAKE_JOBS
 make install
 cd ..
 
