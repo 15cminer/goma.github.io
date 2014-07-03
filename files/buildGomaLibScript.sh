@@ -305,6 +305,7 @@ cd ../
 cd Seacas-2013-12-03/TPL/netcdf/netcdf-4.3.2/include
 echo "$NETCDF_PATCH" > netcdf.patch
 patch netcdf.h < netcdf.patch
+cp netcdf.h ../../../../include/netcdf.h
 cd ../../
 echo "$IMAKE_PATCH" > Imake.patch
 patch Imakefile < Imake.patch

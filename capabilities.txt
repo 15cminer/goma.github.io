@@ -1,0 +1,37 @@
+Goma’s significant capabilities include:
+• Unprecedented flexibility for mixing and matching physics and physical-chemical
+interactions between material domains. Prototypical Goma 6.0 applications
+are direct-numerical simulation of a liquid drop impacting a porous substrate
+or deposition and drying of polymeric and sol-gel coating solutions. These
+are processes common in the ink-jet printing and adhesive/decorative coating
+technologies.
+
+Fully-coupled thin-region shell-element capability for fluids, structures (beam,
+bar, membrane elements), and other surface mechanics and transport (heat
+transport, surface species). Applications include machine lubrication design,
+thin film wiping flows (painting, doctoring), and laser-surface processing and heat treatment.
+
+Fully-coupled porous-media transport capability, with multi-region porouscontinuum
+compatibility.
+
+Complex rheology including yield stress, shear thinning, and viscoelastic fluids
+with thermal or chemical-dependent properties. Modeling the rheology of
+particle-filled polymers is one of Goma’s strengths.
+
+Solid material models for complex behavior including elasto-viscoplasticity and
+nonlinear Hookean response.
+
+• Extensive diffusion/reaction models for electrochemical processes (corrosion,
+battery performance, electroplating, etc.).
+
+• Bio-inspired applications for particle-phase including independent motion from
+the bulk fluid to hydrophobicity similar to lily pads.
+
+Advanced capabilities allowing for easy implementation of design constraints
+(augmenting conditions based on any combination of fluxes, forces, primitive
+variables), sensitivity analysis, operating window calculation (linear stability
+analysis and automated multi-parameter continuation), and pixel/voxel-tomesh
+translators
+
+All these and more capabilities are integrated in Goma’s fully coupled finite
+element framework.
