@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://goma.github.io/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="files/icon.jpg">
+    <title>Goma 6.0 Finite Element Program</title>
+	  <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Analytics Code -->
+    <script async="" src="./Goma 6.0 Finite Element Program_files/analytics.js"></script><script>
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4121810-13', 'goma.github.io');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+  </script>
+
+<script>
+function loadXMLDoc()
+{
+var goma;
+  goma=new XMLHttpRequest();
+goma.onreadystatechange=function()
+  {
+  if (goma.readyState==4 && goma.status==200)
+    {
+    obj = JSON.parse(goma.responseText);
+		var i;
+		for (i = 0; i < obj.length; i++){
+			document.getElementById("myDiv").innerHTML+="<ul><li>" + obj[i].name + "</li></ul>";
+		}
+	}
+ }
+goma.open("GET","https://api.github.com/users/15cminer/repos",true);
+goma.send();
+}
+</script>
+
+  </head>
+
+ <body onload="loadXMLDoc()">
+
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation" id="navigation">
+	<table><tr><td>
+		 <p>
+   <div class="image">
+      <img src="files/sandiaLogo.jpg" width="100"/>
+      <img src="files/gomaLogo.jpg" width="100"/>
+    </div>
+	</p>
+	</td>
+	<td>
+      <div class="container" id="topBar">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="main.html">Goma Home</a>
+        </div>
+        <div class="navbar-collapse collapse" id="topBar">
+          <ul class="nav navbar-nav">
+            <li><a href="about.html">About</a></li>
+            <li><a href="build.html">Build Goma 6.0</a></li>
+            <li><a href="https://github.com/goma/goma">Goma GitHub</a></li>
+			<li><a href="http://chtm1.unm.edu:8080">Issue Database</a></li>
+			<li><a href="http://chtm1.unm.edu:8090">Discussion Forums</a></li>
+			
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+	  </td>
+		</tr>
+		</table>
+    </div>
+
+
+<h2>Your GitHub Repos</h2>
+<div id="myDiv"></div>
+
+	
+
+
+ </body>
+</html>
+
