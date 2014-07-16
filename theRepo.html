@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://goma.github.io/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="files/icon.jpg">
+    <title>Goma 6.0 Finite Element Program</title>
+	  <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Analytics Code -->
+    <script async="" src="./Goma 6.0 Finite Element Program_files/analytics.js"></script><script>
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-4121810-13', 'goma.github.io');
+  ga('require', 'displayfeatures');
+  ga('send', 'pageview');
+
+  </script>
+<script>
+    var branchName;
+    var repoName;
+    var x = 0;
+    var name;
+    var githubID;
+
+    function github() {
+        var person = prompt("Please enter your name", "");
+        githubID = person;
+
+        document.getElementById("myDiv").innerHTML = "";
+        goma();
+    }
+
+    function show(e) {
+        var e = document.getElementById(e);
+        if (!e) return true;
+        if (e.style.display == "none") {
+            e.style.display = "block"
+        } else {
+            e.style.display = "none"
+        }
+        return true;
+    }
+
+    function repoBranch(rName) {
+        console.log(rName);
+
+        var branch;
+        branch = new XMLHttpRequest();
+        branch.onreadystatechange = function()
+
+        {
+            if (branch.readyState == 4 && branch.status == 200) {
+                obj2 = JSON.parse(branch.responseText);
+                var b;
+                for (b = 0; b < obj2.length; b++) {
+                    branchName = obj2[b].name;
+                    console.log(branchName);
+                    document.getElementById("myDiv2" + rName).innerHTML += "<p id='lol'><ul><ul><li><button style='font: 18px Arial' type='button'>" + obj2[b].name + "</button></li></ul></ul><div></div></p>";
+
+                }
+            }
+        }
+        branch.open("GET", "https://api.github.com/repos/" + githubID + "/" + rName + "/branches", true);
+        branch.send();
+    }
+
+    function goma() {
+
+        var goma;
+        goma = new XMLHttpRequest();
+        goma.onreadystatechange = function()
+
+        {
+            if (goma.readyState == 4 && goma.status == 200) {
+                obj = JSON.parse(goma.responseText);
+                var i;
+                for (i = 0; i < obj.length; i++) {
+                    repoName = obj[i].name;
+                    //repoBranch();
+                    //stop unti
+                    var sheep = repoName + 0;
+                    document.getElementById("myDiv").innerHTML += "<ul><li><button type='button' name='" + sheep + "' class='click-tracking' style='font: 20px Arial' id='" + repoName + "' onclick='clicks(id,name);'>" + repoName + "</button></li></ul><div id='myDiv2" + repoName + "'></div>";
+
+                }
+            }
+        }
+
+
+        goma.open("GET", "https://api.github.com/users/" + githubID + "/repos", true);
+        goma.send();
+    }
+
+    function clicks(name, val) {
+
+        var elem = document.getElementById(name);
+        if (elem.name == 1) {
+            elem.name = "0";
+            document.getElementById("myDiv2" + name +
+                "").style.display = "none";
+        } else if (elem.name == 0) {
+            elem.name = "1";
+            document.getElementById("myDiv2" + name + "").style.display = "block";
+        } else {
+            elem.name = "1";
+            repoBranch(name);
+        }
+
+    }
+</script>
+</head>
+<body id="repo" onload="goma()">
+    <div class="navbar navbar-default navbar-static-top" role="navigation" id="navigation">
+        <table>
+            <tr>
+                <td>
+                    <p>
+                        <div class="image">
+                            <img src="files/sandiaLogo.jpg" width="100" />
+                            <img src="files/gomaLogo.jpg" width="100" />
+                        </div>
+                    </p>
+                </td>
+                <td>
+                    <div class="container" id="topBar">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+
+                            </button> <a class="navbar-brand" href="main.html">Goma Home</a>
+
+                        </div>
+                        <div class="navbar-collapse collapse" id="topBar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="about.html">About</a>
+
+                                </li>
+                                <li><a href="build.html">Build Goma 6.0</a>
+
+                                </li>
+								<li><a href="theRepo.html">Test Your Goma</a>
+								
+								</li>
+                                <li><a href="https://github.com/goma/goma">Goma GitHub</a>
+
+                                </li>
+                                <li><a href="http://chtm1.unm.edu:8080">Issue Database</a>
+
+                                </li>
+                                <li><a href="http://chtm1.unm.edu:8090">Discussion Forums</a>
+
+                                </li>
+								
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="repos">
+        <button style="font: 24px Arial" onclick="github()">GitHub ID</button>
+        
+<h1>Your GitHub Repos:</h1>
+
+        <div id="myDiv"></div>
+        <div id="myDiv2"></div>
+    </div </body>
