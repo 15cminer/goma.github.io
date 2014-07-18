@@ -38,7 +38,7 @@
     function github() {
         var person = prompt("Please enter your name", "");
         githubID = person;
-		document.getElementById("userName").innerHTML = "" + person + "";
+        document.getElementById("userName").innerHTML = "" + person + "";
         document.getElementById("myDiv").innerHTML = "";
         goma();
     }
@@ -77,11 +77,18 @@
         branch.send();
     }
 
-	function goTo() {
-	var url = "http://www.google.com";
-	window.location(url);
-	}
-	
+    function goTo() {
+        var guts;
+        guts = new XMLHttpRequest();
+        guts.onreadystatechange = function() {
+    if (guts.readyState == 4 && guts.status == 200) {
+    javascript:location.href="http://goma.github.io/";
+    }
+    }
+    guts.open("GET", "https://api.github.com/repos/15cminer/bloodModel/branches", true);
+        guts.send();    
+    }
+
     function goma() {
 
         var goma;
@@ -157,9 +164,9 @@
                                 <li><a href="build.html">Build Goma 6.0</a>
 
                                 </li>
-								<li><a href="theRepo.html">Test Your Goma</a>
-								
-								</li>
+                                <li><a href="theRepo.html">Test Your Goma</a>
+
+                                </li>
                                 <li><a href="https://github.com/goma/goma">Goma GitHub</a>
 
                                 </li>
@@ -169,7 +176,6 @@
                                 <li><a href="http://chtm1.unm.edu:8090">Discussion Forums</a>
 
                                 </li>
-								
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
@@ -179,13 +185,23 @@
         </table>
     </div>
     <div id="repos">
-	<table><tr><td>
-        <button id="buttonUserName" style="font: 24px Arial" onclick="github()">Change GitHub ID</button></td>
-		<td><p id="currentUserName" style="font: 24px Arial">Current GitHub User:</p></td>
-		<td><p id="userName" style="font: 24px Arial"></p></tr></td></table>
+        <table>
+            <tr>
+                <td>
+                    <button id="buttonUserName" style="font: 24px Arial" onclick="github()">Change GitHub ID</button>
+                </td>
+                <td>
+                    <p id="currentUserName" style="font: 24px Arial">Current GitHub User:</p>
+                </td>
+                <td>
+                    <p id="userName" style="font: 24px Arial"></p>
+            </tr>
+            </td>
+        </table>
         
 <h1>Your GitHub Repos:</h1>
 
         <div id="myDiv"></div>
         <div id="myDiv2"></div>
-    </div> </body>
+    </div>
+</body>
