@@ -1,0 +1,24 @@
+<script>
+var happy = 4;
+        function goTo() {
+        var guts;
+        guts = new XMLHttpRequest();
+        guts.onreadystatechange = function() {
+    if (guts.readyState == 4 && guts.status == 200) {
+    document.getElementById("myDiv").innerHTML=guts.responseText;
+    }
+    }
+    guts.open("GET", "https://api.github.com/repos/15cminer/bloodModel/branches", true);
+        guts.send();    
+    }
+    
+	function setHappy()
+	{
+
+	document.getElementById("happyPappy").innerHTML=happy;
+	}
+</script>
+
+<button onclick='goTo();setHappy()'>Click Me!!</button>
+<div id="myDiv"></div>
+<p id="happyPappy"></p>
