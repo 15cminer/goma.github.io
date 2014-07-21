@@ -78,16 +78,8 @@
     }
 
     function goTo() {
-        var guts;
-        guts = new XMLHttpRequest();
-        guts.onreadystatechange = function() {
-    if (guts.readyState == 4 && guts.status == 200) {
-    javascript:location.href="http://goma.github.io/";
-    }
-    }
-    guts.open("GET", "https://api.github.com/repos/15cminer/bloodModel/branches", true);
-        guts.send();    
-    }
+    javascript:location.href="http://129.24.4.222:9999/greetUser?name=webServer";
+	}
 
     function goma() {
 
@@ -203,5 +195,20 @@
 
         <div id="myDiv"></div>
         <div id="myDiv2"></div>
+		<div id="myDiv3"></div>
     </div>
 </body>
+
+<!--GO TO GET REQUEST TEXT
+  /*   var guts;
+        guts = new XMLHttpRequest(); 
+        guts.onreadystatechange = function() {
+    if (!(guts.readyState == 1 && guts.status == 200) {
+    
+	
+    }
+    }
+    guts.open("GET", "http://129.24.4.222:9999/greetUser?name=webServer", true);
+	guts.open("GET", "https://api.github.com/users/15cminer/repos", true);
+        guts.send();   */ -->
+		
