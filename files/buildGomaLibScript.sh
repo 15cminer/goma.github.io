@@ -1,10 +1,10 @@
 #!/bin/bash
 
-GOMA_LIB=$HOME/gomaLib
+GOMA_LIB=/home/cminer/test/gomaLib
 
 MAKE_JOBS=10
 
-OWNER=guts
+OWNER=$USER
 
 
 FORTRAN_LIBS=-lgfortran
@@ -276,8 +276,8 @@ cd ../
 #Seacas
 mv 2013-12-03 Seacas-2013-12-03
 mv hdf5-1.8.13 hdf5-source
-mv hdf5-source Seacas-2013-12-03/TPL/hdf5
-mv netcdf-4.3.2 Seacas-2013-12-03/TPL/netcdf
+mv hdf5-source Seacas-2013-12-03/TPL/hdf5/
+mv netcdf-4.3.2 Seacas-2013-12-03/TPL/netcdf/
 #UMFPACK
 mkdir UMFPACK-5.4
 mv UMFPACK UMFPACK-5.4
@@ -305,7 +305,6 @@ cd ../
 cd Seacas-2013-12-03/TPL/netcdf/netcdf-4.3.2/include
 echo "$NETCDF_PATCH" > netcdf.patch
 patch netcdf.h < netcdf.patch
-cp netcdf.h ../../../../include/netcdf.h
 cd ../../
 echo "$IMAKE_PATCH" > Imake.patch
 patch Imakefile < Imake.patch

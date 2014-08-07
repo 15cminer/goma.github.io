@@ -95,45 +95,20 @@
 
 	<h4>Welcome to the new BETA Quick-Build page for Goma 6.0! We have made a run script that will allow you to easily download all of the necesarry supporting files for Goma 6.0, and we have also included simple instructions on how to correctly configure Goma 6.0 so that it is ready for immediate use!</h4>
 	
-  <h3>Download build script</h3>
-  <p>Download the build script here: <a href="files/buildGomaLibScript.sh">Goma Library Script</a></p>
+  <h3>Download the Goma Library Build script</h3>
+  <p>Download the Goma Library build script here: <a href="files/buildGomaLibScript.sh">Goma Library Script</a></p>
   <p>Move the script from your downloads, to the place where you want to build Goma 6.0 and the supporting libraries<p>
+  <p>Edit the script in any editor and change the GOMA_LIB variable at the top of the script.</p>
   <p>Run the library script</p>
   <p>As soon as that finishes downloading, you have the essential libraries inorder to run Goma 6.0!</p>
- 
-	<h3>Build Goma</h3>	
-	<li>
-	  GOMA:
-	   <ul>
-	    <li>Go to the GitHub page goma/goma.</li>
-		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into where you want your goma directory to be and run <code id="libraries">git clone <Goma URL></code></li>
-	  </ul>
-	  <p>cd into your new goma directory and change the settings.mk-example into your settings.mk file by running <code id="libraries">cp settings.mk-example settings.mk</code></p>
-	  <p>Edit the variables GOMA_LIBS, SEACAS_TOP, and PREFIX  in the settings.mk file</p>
-	  <p>In the settings.mk, add <li><code id="libraries">FRONT_LIB = </code></li> and <li><code id="libraries">UMFPACK_TOP = $(GOMA_LIBS)/UMFPACK-5.4/UMFPACK </code></li> after the PREFIX.</p>
-	  <p>After making sure that the paths are set correctly, run:</p>
-	  <pre><li>make</li>
-	  <li>make install</li></pre>
-	  <p>I did not run into any issues with building goma. Just make sure all the paths are pointed to the correct
-	    compilers and the libraries.</p>
-	</li>
-	
-	
-	<h4>Build brk/fix</h4>
-	<li><p>brk/fix:</p>
-	<ul>
-	    <li>Go to the GitHub page goma/brkfix.</li>
-		<li>Copy the HTTPS clone URL on the right hand side of the page, then cd into your Goma directory and run <code id="libraries">git clone <brk/fix URL></code></li>
-	</ul>
-	  <p>Check the following macros before doing a make.</p>
-	<pre>
-		CC
-		ACCESS
-		COPTIMIZEFLAGS
-	</pre>
-	  <p>Brk/fix compiled without any major issues.</p>
-
-	</li>
+  
+  <h3>Download Goma and Brk/fix script</h3>
+  <p>Download the Goma and Brk/fix script here: <a href="files/buildGoma.sh">Goma and Brk/fix Script</a></p>
+  <p>Move the script from your downloads, to the place where your gomaLib directory is.<p>
+  <p>Edit the script in any editor and change the GOMA_LIBS input in the GOMA_PATCH and change the ACCESS input in the BRKFIX_PATCH.</p>
+  <p>Run the Goma and Brk/fix script.</p>
+  <p>You now have Goma 6.0! Enjoy!</p>
+  
 	
     
 </div>
